@@ -19,7 +19,7 @@ var store = sessions.NewCookieStore([]byte("super-secret"))
 func init() {
 	store.Options.HttpOnly = true
 	store.Options.Secure = true
-	gob.Register(&User{})
+	gob.Register(&models.User{})
 }
 
 func main() {
