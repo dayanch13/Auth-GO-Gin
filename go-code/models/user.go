@@ -5,8 +5,6 @@ type User struct {
 	Username  string
 	Email     string
 	pswdHash  string
-	CreatedAt string
 	Active    string
-	verHash   string
-	timeout   string
+	UserRole  string
 }
