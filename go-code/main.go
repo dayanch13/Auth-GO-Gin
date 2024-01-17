@@ -12,18 +12,6 @@ import (
 	"github.com/gorilla/sessions"
 	"golang.org/x/crypto/bcrypt"
 )
-
-type User struct {
-	ID        string
-	Username  string
-	Email     string
-	pswdHash  string
-	CreatedAt string
-	Active    string
-	verHash   string
-	timeout   string
-}
-
 var db *sql.DB
 
 var store = sessions.NewCookieStore([]byte("super-secret"))
@@ -83,7 +71,7 @@ func loginGethandler(c *gin.Context) {
 }
 
 func loginPosthandler(c *gin.Context) {
-	var user User
+	var user models.User
 	user.Username = c.PostForm("username")
 	password := c.PostForm("password")
 	err := user.getUserByUsername()
